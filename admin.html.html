@@ -1,0 +1,54 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Notice Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .btn { padding: 6px 12px; margin-right: 5px; border: none; cursor: pointer; }
+        .btn-delete { background-color: #e74c3c; color: white; }
+        .btn-archive { background-color: #f1c40f; color: black; }
+    </style>
+</head>
+<body>
+
+<h1>Admin Panel: Manage Notices</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Posted On</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for notice in notices %}
+        <tr>
+            <td>{{ notice.id }}</td>
+            <td>{{ notice.title }}</td>
+            <td>{{ notice.date_posted }}</td>
+            <td>
+                <form action="/admin/delete/{{ notice.id }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-delete">Delete</button>
+                </form>
+                <form action="/admin/archive/{{ notice.id }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-archive">Archive</button>
+                </form>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No notices available.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
+
