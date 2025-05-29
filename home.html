@@ -1,0 +1,168 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Notice Board - Home</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Digital Notice Board System</h1>
+    </header><nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/post">Post Notice</a></li>
+        <li><a href="/admin">Manage Notices</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section class="login-section">
+        <h2>Staff Login</h2>
+        <form action="/staff_login" method="POST">
+            <label for="staff_id">Staff ID:</label>
+            <input type="text" name="staff_id" id="staff_id" required>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <section class="student-section">
+        <h2>Student Verification</h2>
+        <form action="/student_access" method="POST">
+            <label for="reg_no">Registration Number:</label>
+            <input type="text" name="reg_no" id="reg_no" required>
+
+            <label for="department">Department:</label>
+            <select name="department" id="department" required>
+                <option value="">Select</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="MECH">MECH</option>
+                <option value="ALL">ALL</option>
+            </select>
+
+            <label for="year">Year:</label>
+            <select name="year" id="year" required>
+                <option value="">Select</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+            </select>
+
+            <button type="submit">View Notices</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 College Digital Notice Board</p>
+</footer>
+
+</body>
+</html><style>/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #34495e;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    margin: 15px 0;
+}
+
+h2 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+}</style>
