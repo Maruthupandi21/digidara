@@ -1,0 +1,60 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/>from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///notices.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+class Notice(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(200), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    date_posted = db.Column(db.DateTime, default=datetime.utcnow)
+    archived = db.Column(db.Boolean, default=False)
+
+# Home - Public View
+@app.route('/')
+def index():
+    notices = Notice.query.filter_by(archived=False).order_by(Notice.date_posted.desc()).all()
+    return render_template('index.html', notices=notices)
+
+# Admin Panel
+@app.route('/admin')
+def admin_panel():
+    notices = Notice.query.order_by(Notice.date_posted.desc()).all()
+    return render_template('admin.html', notices=notices)
+
+# Post Notice
+@app.route('/post_notice', methods=['GET', 'POST'])
+def post_notice():
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        new_notice = Notice(title=title, content=content)
+        db.session.add(new_notice)
+        db.session.commit()
+        return redirect(url_for('admin_panel'))
+    return render_template('post_notice.html')
+
+# Delete Notice
+@app.route('/admin/delete/<int:id>', methods=['POST'])
+def delete_notice(id):
+    notice = Notice.query.get_or_404(id)
+    db.session.delete(notice)
+    db.session.commit()
+    return redirect(url_for('admin_panel'))
+
+# Archive Notice
+@app.route('/admin/archive/<int:id>', methods=['POST'])
+def archive_notice(id):
+    notice = Notice.query.get_or_404(id)
+    notice.archived = True
+    db.session.commit()
+    return redirect(url_for('admin_panel'))
+
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True)
