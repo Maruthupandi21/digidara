@@ -1,0 +1,66 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/>from flask import Flask, render_template, request, redirect, url_for
+import csv
+import os
+
+app = Flask(name)
+
+NOTICE_FILE = 'notices.csv'
+
+@app.route('/')
+def notice_board():
+notices = []
+if os.path.exists(NOTICE_FILE):
+with open(NOTICE_FILE, 'r', encoding='utf-8') as f:
+reader = csv.reader(f)
+for row in reader:
+notices.append({'title': row[0], 'content': row[1]})
+return render_template('notice_board.html', notices=notices)
+
+@app.route('/add_notice', methods=['GET', 'POST'])
+def add_notice():
+if request.method == 'POST':
+title = request.form['title']
+content = request.form['content']
+with open(NOTICE_FILE, 'a', newline='', encoding='utf-8') as f:
+writer = csv.writer(f)
+writer.writerow([title, content])
+return redirect(url_for('notice_board'))
+return render_template('add_notice.html')
+
+if name == '_main'
+App.run(debug=true)
+
+@app.route('/', methods=['GET'])
+def index():
+    return render_template_string(HTML_FORM, notices=notices)
+
+@app.route('/post_notice', methods=['POST'])
+def post_notice():
+    title = request.form.get('title')
+    content = request.form.get('content')
+    if title and content:
+        notices.append({'title': title, 'content': content})
+    return redirect('/')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+    
+    
+@app.route('/admin')
+def admin_panel():
+    return render_template('admin.html', notices=notices)
+
+@app.route('/admin/delete/<int:notice_id>', methods=['POST'])
+def delete_notice(notice_id):
+    global notices
+    notices = [n for n in notices if n['id'] != notice_id]
+    return redirect('/admin')
+
+@app.route('/admin/archive/<int:notice_id>', methods=['POST'])
+def archive_notice(notice_id):
+    
+    print(f"Notice {notice_id} archived )
+    return redirect('/admin')
+
+if __name__ == '__main__':
+    app.run(debug=True)
