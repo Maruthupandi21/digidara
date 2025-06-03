@@ -1,0 +1,165 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Notice</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Digital Notice Board System</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/post" class="active">Post Notice</a></li>
+            <li><a href="/admin">Manage Notices</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="post-section">
+            <h2>Post a New Notice</h2>
+            <form action="/submit_notice" method="POST" class="notice-form">
+                <label for="title">Notice Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="content">Notice Content:</label>
+                <textarea id="content" name="content" rows="6" required></textarea>
+
+                <label for="target">Target Department:</label>
+                <select id="target" name="target" required>
+                    <option value="">Select</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="MECH">MECH</option>
+                    <option value="ALL">All Departments</option>
+                </select>
+
+                <label for="year">Target Year:</label>
+                <select id="year" name="year" required>
+                    <option value="">Select</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                    <option value="ALL">All Years</option>
+                </select>
+
+                <button type="submit">Post Notice</button>
+            </form>
+        </section>
+
+        <section class="student-verification">
+            <h2>Student Verification</h2>
+            <form action="/verify_student" method="POST" class="student-form">
+                <label for="reg_no">Registration Number:</label>
+                <input type="text" id="reg_no" name="reg_no" required>
+
+                <label for="department">Department:</label>
+                <select id="department" name="department" required>
+                    <option value="">Select</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="MECH">MECH</option>
+                </select>
+
+                <label for="year">Year:</label>
+                <select id="year" name="year" required>
+                    <option value="">Select</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                </select>
+
+                <button type="submit">Verify</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 College Digital Notice Board</p>
+    </footer>
+
+</body>
+</html><style>/* Common form and section styling */
+.post-section,
+.student-verification {
+    width: 60%;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    animation: fadeIn 1s ease-in;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.notice-form, .student-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.notice-form label,
+.student-form label {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.notice-form input,
+.student-form input,
+.notice-form textarea,
+.student-form textarea,
+.notice-form select,
+.student-form select {
+    margin-top: 6px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.notice-form input:focus,
+.student-form input:focus,
+.notice-form textarea:focus,
+.student-form textarea:focus,
+.notice-form select:focus,
+.student-form select:focus {
+    border-color: #2ecc71;
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+}
+
+.notice-form button,
+.student-form button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.notice-form button:hover,
+.student-form button:hover {
+    background-color: #2980b9;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}</style>
