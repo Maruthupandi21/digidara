@@ -1,0 +1,168 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Notice Board</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">📌 NoticeBoard</div>
+      <ul class="nav-links">
+        <li><a href="/">Notice Board</a></li>
+        <li><a href="/post">Post Notice</a></li>
+        <li><a href="/admin">Admin Manage</a></li>
+        <li><a href="/login" class="login-btn">Student Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <h1 class="animated-title">Welcome to the Digital Notice Board</h1>
+    <p class="subtext">All your campus updates in one place.</p>
+    <a href="/" class="cta-button">Explore Notices</a>
+  </section>
+</body>
+</html><style>body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1976d2;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover {
+  transform: scale(1.1);
+  color: #ffeb3b;
+}
+
+.login-btn {
+  background: white;
+  color: #1976d2;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.login-btn:hover {
+  background: #1565c0;
+  color: white;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.animated-title {
+  font-size: 2.5rem;
+  animation: slideIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+.subtext {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 0.75rem 1.5rem;
+  background-color: #1976d2;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background-color: #004ba0;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Login page */
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #1565c0;
+}
+
+.error-msg {
+  color: red;
+  font-weight: 500;
+  text-align: center;
+}</style>
