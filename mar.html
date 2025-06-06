@@ -1,0 +1,133 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><style>
+/* General Reset & Font */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+  color: #333;
+}
+
+/* Header and Navigation */
+.navbar {
+  background-color: #1976d2;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.login-btn:hover {
+  background: #1565c0;
+}
+
+.login-btn {
+  background: #fff;
+  color: #1976d2;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 8px 14px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.login-btn:hover {
+  background: #e3f2fd;
+  color: #0d47a1;
+}
+
+/* Notice Container */
+.notice-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Notice Cards */
+.notice-card {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 6px solid #1976d2;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.notice-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.notice-card h3 {
+  margin: 0 0 10px;
+  color: #1976d2;
+}
+
+.notice-card p {
+  margin-bottom: 12px;
+}
+
+.meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a {
+    display: block;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .notice-container {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+}
+</style>
