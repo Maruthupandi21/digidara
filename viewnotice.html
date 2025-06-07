@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>View Notices - Student</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+  .notice-board {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 600px;
+    max-width: 95vw;
+    padding: 20px 30px;
+  }
+  .notice-board h2 {
+    text-align: center;
+    color: #00796b;
+    margin-bottom: 25px;
+  }
+  .notice {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+  }
+  .notice:last-child {
+    border-bottom: none;
+  }
+  .notice-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #004d40;
+    margin-bottom: 8px;
+  }
+  .notice-message {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 5px;
+  }
+  .notice-date {
+    font-size: 14px;
+    color: #777;
+    font-style: italic;
+  }
+  nav {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  nav a {
+    color: #00796b;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 650px) {
+    .notice-board {
+      padding: 15px 20px;
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="notice-board">
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a> |
+      <a href="{{ url_for('admin') }}">Admin Page</a>
+    </nav>
+    <h2>Latest Notices</h2>
+    {% if notices %}
+      {% for notice in notices %}
+      <div class="notice">
+        <div class="notice-title">{{ notice['title'] }}</div>
+        <div class="notice-message">{{ notice['message'] }}</div>
+        <div class="notice-date">Posted on: {{ notice['date'] }}</div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p style="text-align:center; color: #555;">No notices posted yet.</p>
+    {% endif %}
+  </div>
+</body>
+</html>
