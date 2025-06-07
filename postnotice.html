@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Notice</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f0f9ff;
+      padding: 50px;
+    }
+    .box {
+      width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    input[type="submit"] {
+      background: #00796b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background: #004d40;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Test Manage Notice</h2>
+    <form>
+      <select>
+        <option>New</option>
+        <option>Old</option>
+      </select>
+      <input type="text" placeholder="Title" />
+      <textarea placeholder="Message"></textarea>
+      <input type="submit" value="Save" />
+    </form>
+  </div>
+
+</body>
+</html>
