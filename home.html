@@ -2,79 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Notice Board - Home</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: linear-gradient(to right, #e3f2fd, #ffffff);
-      color: #333;
-    }
-    header {
-      background-color: #1976d2;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    nav {
-      background-color: #1565c0;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #ffeb3b;
-    }
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-      background-color: #bbdefb;
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #e3f2fd;
-      color: #444;
-      margin-top: 50px;
-    }
-  </style>
+  <title>Digital Notice Board</title>
+  <link rel="stylesheet" href="/static/home.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>Digital Notice Board System</h1>
+    <nav class="navbar">
+      <div class="logo">📌 NoticeBoard</div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/notice2">Notice Board</a></li>
+        <li><a href="/post_notice">Post Notice</a></li>
+        <li><a href="/admin">Admin Manage</a></li>
+        
+      </ul>
+    </nav>
   </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="admin_login.html">Admin Login</a>
-    <a href="notices.html">post Notices</a>
-    <a href="notices.html">student</a>
-    <a href="notices.html">View Notices</a>
-  </nav>
-  <div class="hero">
-    <h2>Welcome to the Digital Notice Board</h2>
-    <p>Stay informed with the latest updates, announcements, and campus news — all in one place.</p>
-  </div>
-  <footer>
-    &copy; 2025 Digital Notice Board. All rights reserved.
-  </footer>
+
+  <section class="hero-section">
+    <h1 class="animated-title">Welcome to the Digital Notice Board</h1>
+    <p class="subtext">All your campus updates in one place.</p>
+    
+  </section>
 </body>
 </html>

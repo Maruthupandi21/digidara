@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post New Notice</title>
+  <link rel="stylesheet" href="/static/post1.css">
+  
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">📌 NoticeBoard</div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('notice2') }}">Notice Board</a></li>
+      <li><a href="{{ url_for('post_notice') }}">Post Notice</a></li>
+      <li><a href="{{ url_for('admin') }}">Admin Manage</a></li>
+    </ul>
+  </nav>
+
+  <div class="form-container">
+    <h2>Post a New Notice</h2>
+    {% if error %}
+      <p class="error-msg">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('post_notice') }}">
+      <input type="text" name="title" placeholder="Notice Title" required>
+      <textarea name="description" placeholder="Full Description" required></textarea>
+      <input type="text" name="category" placeholder="Category (e.g., Exam)" required>
+      <input type="text" name="department" placeholder="Target Department (e.g., CSE)" required>
+      <button type="submit">Post Notice</button>
+    </form>
+  </div>
+</body>
+</html>

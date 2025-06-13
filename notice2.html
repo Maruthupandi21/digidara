@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notice Board</title>
+  <link rel="stylesheet" href="/static/notice.css">
+
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">📌 NoticeBoard</div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      
+      <li><a href="{{ url_for('notice2') }}">Notice Board</a></li>
+      <li><a href="{{ url_for('post_notice') }}">Post Notice</a></li>
+      <li><a href="{{ url_for('admin') }}">Admin Manage</a></li>
+    </ul>
+  </nav>
+
+  <div class="notices-container">
+    <h2>Latest Notices</h2>
+    {% if error %}
+      <p class="error-msg">{{ error }}</p>
+    {% endif %}
+    {% if notices %}
+      {% for notice in notices %}
+        <div class="notice">
+          <div class="notice-meta">
+            <span><strong>By:</strong> {{ notice.posted_by }}</span>
+            <span><strong>Category:</strong> {{ notice.category }}</span>
+            <span><strong>Dept:</strong> {{ notice.department }}</span>
+            <span><strong>Date:</strong> {{ notice.created_at.strftime('%Y-%m-%d') }}</span>
+          </div>
+          <div class="notice-title">{{ notice.title }}</div>
+          <div class="notice-description">{{ notice.description }}</div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="no-notices">No notices available at the moment.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

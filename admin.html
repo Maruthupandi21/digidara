@@ -1,0 +1,32 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="/static/admin.css">
+  
+</head>
+<body>
+  <nav class="navbar">
+      <div class="logo">📌 NoticeBoard</div>
+      <ul class="nav-links">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/notice2">Notice Board</a></li>
+        <li><a href="/post1">Post Notice</a></li>
+        <li><a href="/admin">Admin Manage</a></li>
+        
+      </ul>
+    </nav>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    {% if error %}
+      <p class="error-msg">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="/admin_login">
+      <input type="number" name="admin_id" placeholder="Admin ID" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
